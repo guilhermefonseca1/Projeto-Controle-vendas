@@ -99,5 +99,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="br.com.projeto.conexao\" />
+    <Folder Include="br.com.projeto.dao\" />
+    <Folder Include="br.com.projeto.model\" />
+    <Folder Include="br.com.projeto.view\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
