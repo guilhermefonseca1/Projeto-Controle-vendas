@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_Controle_vendas.br.com.projeto.view;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Projeto_Controle_vendas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Frmclientes());
         }
     }
 }
