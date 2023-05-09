@@ -11,19 +11,21 @@ using System.Windows.Forms;
 namespace Projeto_Controle_vendas.br.com.projeto.dao
 {
     public class ClienteDAO
-    {
+    { 
         private MySqlConnection conexao;
         public ClienteDAO() 
         {
          this.conexao = new ConnectionFactory().getConnection();
         }
+        //Metodo CadastrarCliente
         public void cadastrarCliente(Cliente obj)
         {
 			try
 			{
-                //1 passo - definir o cmd sql - insert into
+                //1 passo - definir o cmd sql - insert into (Valores que eu quero cadastrar)
                 string sql = @"insert into tb_clientes (nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)
                                 value (@nome,@rg,@cpf,@email,@telefone,@celular,@cep,@endereco,@numero,@complemento,@bairro,@cidade,@estado) ";
+                //Na linha de cima temos as variáveis/parametro(são as Parameters) que vão receber os valores que eu quero inserir
 
                 //2 passo - Organizar o cmd sql
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
@@ -55,3 +57,9 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         }
     }
 }
+//Metodo AlterarCliente
+//Metodo ExcluirCliente
+//Metodo ListarCliente
+//Metodo BuscarCliente
+
+

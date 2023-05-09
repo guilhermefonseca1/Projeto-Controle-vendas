@@ -178,15 +178,15 @@
             "PR",
             "SC",
             "RS"});
-            this.cbuf.Location = new System.Drawing.Point(453, 179);
+            this.cbuf.Location = new System.Drawing.Point(440, 179);
             this.cbuf.Name = "cbuf";
-            this.cbuf.Size = new System.Drawing.Size(39, 28);
+            this.cbuf.Size = new System.Drawing.Size(52, 28);
             this.cbuf.TabIndex = 54;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(426, 183);
+            this.label15.Location = new System.Drawing.Point(409, 183);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 20);
             this.label15.TabIndex = 53;
@@ -224,7 +224,7 @@
             // 
             this.txtendereço.Location = new System.Drawing.Point(114, 179);
             this.txtendereço.Name = "txtendereço";
-            this.txtendereço.Size = new System.Drawing.Size(306, 27);
+            this.txtendereço.Size = new System.Drawing.Size(292, 27);
             this.txtendereço.TabIndex = 44;
             // 
             // label6
