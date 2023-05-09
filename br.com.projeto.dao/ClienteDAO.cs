@@ -3,6 +3,7 @@ using Projeto_Controle_vendas.br.com.projeto.conexao;
 using Projeto_Controle_vendas.br.com.projeto.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,11 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         {
          this.conexao = new ConnectionFactory().getConnection();
         }
+
+
+
+
+        #region cadastrarCliente
         //Metodo CadastrarCliente
         public void cadastrarCliente(Cliente obj)
         {
@@ -55,6 +61,50 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
 
             }
         }
+        #endregion
+        //DataGridView = Exibe os dados
+        //→ DataTable recebe os dados de uma lista
+        //→ MySqlDataAdpter é um adaptador que pega os dados retornados pelo comando Select, usado em uma pesquiso ao banco de dados, e Preenche o DataTable
+        //* O MySqlDataAdpter  faz a ligação entre o banco de dados e o DataTable
+        #region listarClientes
+        //Metodo listarClientes
+        public DataTable listarClientes()
+        {
+            try
+            {
+                //1 passo - Criar o DataTable e o comando sql
+                DataTable tabelacliente = new DataTable();
+                string sql = "SELECT * FROM bdvendas.tb_clientes";
+
+                //2 passo - Organizar o sql e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+
+                //3 passo - Abrir a conexao e executar o comando sql
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                //4 passo - Criar o MySQLDataAdapter para preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                return tabelacliente;
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+                return null;
+            }
+
+        }
+
+        //Metodo AlterarCliente
+        //Metodo ExcluirCliente
+        //Metodo BuscarCliente
+
+
+        #endregion listarClientes
     }
 }
 //Metodo AlterarCliente
