@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projeto_Controle_vendas.br.com.projeto.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,12 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnsalvar_Click(object sender, EventArgs e)
+        {
+            Cliente obj = new Cliente();
+            obj.nome = txtnome.Text;
         }
     }
 }

@@ -31,8 +31,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabClientes = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbuf = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtcidade = new System.Windows.Forms.TextBox();
             this.txtcomplemento = new System.Windows.Forms.TextBox();
             this.txtnumero = new System.Windows.Forms.TextBox();
@@ -59,20 +60,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cbuf = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabelacliente = new System.Windows.Forms.DataGridView();
+            this.btnpesquisar = new System.Windows.Forms.Button();
+            this.txtpesquisa = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.btnnovo = new System.Windows.Forms.Button();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
-            this.txtpesquisa = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnpesquisar = new System.Windows.Forms.Button();
-            this.tabelacliente = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabelacliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,22 +108,6 @@
             this.tabClientes.SelectedIndex = 0;
             this.tabClientes.Size = new System.Drawing.Size(798, 340);
             this.tabClientes.TabIndex = 1;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.tabelacliente);
-            this.tabPage2.Controls.Add(this.btnpesquisar);
-            this.tabPage2.Controls.Add(this.txtpesquisa);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.ForeColor = System.Drawing.Color.Black;
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(790, 307);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consulta";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -162,6 +146,51 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Pessoais";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cbuf
+            // 
+            this.cbuf.FormattingEnabled = true;
+            this.cbuf.Items.AddRange(new object[] {
+            "RR",
+            "AP",
+            "AM",
+            "PA",
+            "AC",
+            "RO",
+            "TO",
+            "MA",
+            "PI",
+            "CE",
+            "RN",
+            "PB",
+            "PE",
+            "AL",
+            "SE",
+            "BA",
+            "MT",
+            "DF",
+            "GO",
+            "MS",
+            "MG",
+            "ES",
+            "RJ",
+            "SP",
+            "PR",
+            "SC",
+            "RS"});
+            this.cbuf.Location = new System.Drawing.Point(453, 179);
+            this.cbuf.Name = "cbuf";
+            this.cbuf.Size = new System.Drawing.Size(39, 28);
+            this.cbuf.TabIndex = 54;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(426, 183);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 20);
+            this.label15.TabIndex = 53;
+            this.label15.Text = "UF";
             // 
             // txtcidade
             // 
@@ -376,50 +405,60 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Nome";
             // 
-            // label15
+            // tabPage2
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(426, 183);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 20);
-            this.label15.TabIndex = 53;
-            this.label15.Text = "UF";
+            this.tabPage2.Controls.Add(this.tabelacliente);
+            this.tabPage2.Controls.Add(this.btnpesquisar);
+            this.tabPage2.Controls.Add(this.txtpesquisa);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.ForeColor = System.Drawing.Color.Black;
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(790, 307);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Consulta";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cbuf
+            // tabelacliente
             // 
-            this.cbuf.FormattingEnabled = true;
-            this.cbuf.Items.AddRange(new object[] {
-            "RR",
-            "AP",
-            "AM",
-            "PA",
-            "AC",
-            "RO",
-            "TO",
-            "MA",
-            "PI",
-            "CE",
-            "RN",
-            "PB",
-            "PE",
-            "AL",
-            "SE",
-            "BA",
-            "MT",
-            "DF",
-            "GO",
-            "MS",
-            "MG",
-            "ES",
-            "RJ",
-            "SP",
-            "PR",
-            "SC",
-            "RS"});
-            this.cbuf.Location = new System.Drawing.Point(453, 179);
-            this.cbuf.Name = "cbuf";
-            this.cbuf.Size = new System.Drawing.Size(39, 28);
-            this.cbuf.TabIndex = 54;
+            this.tabelacliente.AllowUserToAddRows = false;
+            this.tabelacliente.AllowUserToDeleteRows = false;
+            this.tabelacliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabelacliente.Location = new System.Drawing.Point(4, 79);
+            this.tabelacliente.Name = "tabelacliente";
+            this.tabelacliente.ReadOnly = true;
+            this.tabelacliente.Size = new System.Drawing.Size(752, 227);
+            this.tabelacliente.TabIndex = 34;
+            // 
+            // btnpesquisar
+            // 
+            this.btnpesquisar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnpesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnpesquisar.Location = new System.Drawing.Point(536, 23);
+            this.btnpesquisar.Name = "btnpesquisar";
+            this.btnpesquisar.Size = new System.Drawing.Size(137, 45);
+            this.btnpesquisar.TabIndex = 33;
+            this.btnpesquisar.Text = "Pesquisar";
+            this.btnpesquisar.UseVisualStyleBackColor = false;
+            // 
+            // txtpesquisa
+            // 
+            this.txtpesquisa.Location = new System.Drawing.Point(107, 35);
+            this.txtpesquisa.Name = "txtpesquisa";
+            this.txtpesquisa.Size = new System.Drawing.Size(375, 26);
+            this.txtpesquisa.TabIndex = 32;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(39, 35);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 20);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "Nome";
             // 
             // btnnovo
             // 
@@ -444,6 +483,7 @@
             this.btnsalvar.TabIndex = 3;
             this.btnsalvar.Text = "Salvar";
             this.btnsalvar.UseVisualStyleBackColor = false;
+            this.btnsalvar.Click += new System.EventHandler(this.btnsalvar_Click);
             // 
             // btnexcluir
             // 
@@ -469,45 +509,6 @@
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
             // 
-            // txtpesquisa
-            // 
-            this.txtpesquisa.Location = new System.Drawing.Point(107, 35);
-            this.txtpesquisa.Name = "txtpesquisa";
-            this.txtpesquisa.Size = new System.Drawing.Size(375, 26);
-            this.txtpesquisa.TabIndex = 32;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(39, 35);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 20);
-            this.label16.TabIndex = 31;
-            this.label16.Text = "Nome";
-            // 
-            // btnpesquisar
-            // 
-            this.btnpesquisar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnpesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpesquisar.ForeColor = System.Drawing.Color.White;
-            this.btnpesquisar.Location = new System.Drawing.Point(536, 23);
-            this.btnpesquisar.Name = "btnpesquisar";
-            this.btnpesquisar.Size = new System.Drawing.Size(137, 45);
-            this.btnpesquisar.TabIndex = 33;
-            this.btnpesquisar.Text = "Pesquisar";
-            this.btnpesquisar.UseVisualStyleBackColor = false;
-            // 
-            // tabelacliente
-            // 
-            this.tabelacliente.AllowUserToAddRows = false;
-            this.tabelacliente.AllowUserToDeleteRows = false;
-            this.tabelacliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabelacliente.Location = new System.Drawing.Point(4, 79);
-            this.tabelacliente.Name = "tabelacliente";
-            this.tabelacliente.ReadOnly = true;
-            this.tabelacliente.Size = new System.Drawing.Size(752, 227);
-            this.tabelacliente.TabIndex = 34;
-            // 
             // Frmclientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,10 +526,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabelacliente)).EndInit();
             this.ResumeLayout(false);
 
