@@ -113,7 +113,33 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         }
         #endregion
 
-        
+        #region ExcluirCliente
+        //Metodo ExcluirCliente
+        public void ExcluirCliente(Cliente obj)
+        {
+            try
+            {
+                //1 passo - definir o id do elemento que eu quero excluir
+                string sql = @"delete from tb_clientes where id=@id";
+                //Na linha de cima temos as variáveis/parametro(são as Parameters) que vão receber os valores que eu quero inserir
+
+                //2 passo - Organizar o cmd sql
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@id", obj.codigo);
+
+                //3 passo - Abrir a conexao e executar o comando sql
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+                MessageBox.Show("Cliente excluído com sucesso");
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro);
+
+            }
+        }
+        #endregion
 
         #region ListarClientes
         //Metodo listarClientes
