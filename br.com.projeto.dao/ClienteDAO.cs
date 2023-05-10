@@ -22,9 +22,9 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
 
 
 
-        #region cadastrarCliente
+        #region CadastrarCliente
         //Metodo CadastrarCliente
-        public void cadastrarCliente(Cliente obj)
+        public void CadastrarCliente(Cliente obj)
         {
 			try
 			{
@@ -62,13 +62,62 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
             }
         }
         #endregion
+
         //DataGridView = Exibe os dados
         //→ DataTable recebe os dados de uma lista
         //→ MySqlDataAdpter é um adaptador que pega os dados retornados pelo comando Select, usado em uma pesquiso ao banco de dados, e Preenche o DataTable
         //* O MySqlDataAdpter  faz a ligação entre o banco de dados e o DataTable
-        #region listarClientes
+
+        #region AlterarClientes
+        //Metodo AlterarCliente
+        public void AlterarClientes(Cliente obj)
+        {
+            try
+            {
+                //1 passo - definir o cmd sql - update nome_da_tabela set(Valores que eu quero editar)
+                //Ao editar/atualizar um elemento, é preciso fornecer o id desse elemento também
+                string sql = @"update tb_clientes set nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,celular=@celular,cep=@cep,
+                              endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado
+                              where id=@id";
+                //Na linha de cima temos as variáveis/parametro(são as Parameters) que vão receber os valores que eu quero inserir
+
+                //2 passo - Organizar o cmd sql
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", obj.nome);
+                executacmd.Parameters.AddWithValue("@rg", obj.rg);
+                executacmd.Parameters.AddWithValue("@cpf", obj.cpf);
+                executacmd.Parameters.AddWithValue("@email", obj.email);
+                executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
+                executacmd.Parameters.AddWithValue("@celular", obj.celular);
+                executacmd.Parameters.AddWithValue("@cep", obj.cep);
+                executacmd.Parameters.AddWithValue("@endereco", obj.endereco);
+                executacmd.Parameters.AddWithValue("@numero", obj.numero);
+                executacmd.Parameters.AddWithValue("@complemento", obj.complemento);
+                executacmd.Parameters.AddWithValue("@bairro", obj.bairro);
+                executacmd.Parameters.AddWithValue("@cidade", obj.cidade);
+                executacmd.Parameters.AddWithValue("@estado", obj.estado);
+                executacmd.Parameters.AddWithValue("@id", obj.codigo);
+
+
+                //3 passo - Abrir a conexao e executar o comando sql
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+                MessageBox.Show("Cliente editado com sucesso");
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro);
+
+            }
+        }
+        #endregion
+
+        
+
+        #region ListarClientes
         //Metodo listarClientes
-        public DataTable listarClientes()
+        public DataTable ListarClientes()
         {
             try
             {
@@ -104,10 +153,10 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         //Metodo BuscarCliente
 
 
-        #endregion listarClientes
+        #endregion ListarClientes
     }
 }
-//Metodo AlterarCliente
+
 //Metodo ExcluirCliente
 //Metodo ListarCliente
 //Metodo BuscarCliente
