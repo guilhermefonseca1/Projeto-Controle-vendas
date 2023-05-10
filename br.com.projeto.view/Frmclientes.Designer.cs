@@ -431,6 +431,7 @@
             this.tabelacliente.ReadOnly = true;
             this.tabelacliente.Size = new System.Drawing.Size(752, 227);
             this.tabelacliente.TabIndex = 34;
+            this.tabelacliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelacliente_CellClick);
             // 
             // btnpesquisar
             // 

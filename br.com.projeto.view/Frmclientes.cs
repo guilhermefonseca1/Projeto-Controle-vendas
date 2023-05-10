@@ -57,13 +57,39 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             //2 passo - Criar um objeto por meio da classe ClienteDAO e chamar o metodo cadastrarCliente
             //para inserir as informações inseridas na view e armazenadas na model
             ClienteDAO dao = new ClienteDAO();
-            dao.cadastrarCliente(obj);
+            dao.CadastrarCliente(obj);
         }
 
         private void Frmclientes_Load(object sender, EventArgs e)
         {
             ClienteDAO dao = new ClienteDAO();
-            tabelacliente.DataSource = dao.listarClientes();
+            tabelacliente.DataSource = dao.ListarClientes();
+        }
+
+        private void tabelacliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //1 Passo - Pegar os dados do indivíduo clicando na linha da tabela consulta em que o objeto se encontra
+            txtcodigo.Text = tabelacliente.CurrentRow.Cells[0].Value.ToString();
+            txtnome.Text = tabelacliente.CurrentRow.Cells[1].Value.ToString();
+            txtrg.Text = tabelacliente.CurrentRow.Cells[2].Value.ToString();
+            txtcpf.Text = tabelacliente.CurrentRow.Cells[3].Value.ToString();
+            txtemail.Text = tabelacliente.CurrentRow.Cells[4].Value.ToString();
+            txttelefone.Text = tabelacliente.CurrentRow.Cells[5].Value.ToString();
+            txtcelular.Text = tabelacliente.CurrentRow.Cells[6].Value.ToString();
+            txtcep.Text = tabelacliente.CurrentRow.Cells[7].Value.ToString();
+            txtendereço.Text = tabelacliente.CurrentRow.Cells[8].Value.ToString();
+            txtnumero.Text = tabelacliente.CurrentRow.Cells[9].Value.ToString();
+            txtcomplemento.Text = tabelacliente.CurrentRow.Cells[10].Value.ToString();
+            txtbairro.Text = tabelacliente.CurrentRow.Cells[11].Value.ToString();
+            txtcidade.Text = tabelacliente.CurrentRow.Cells[12].Value.ToString();
+            cbuf.Text = tabelacliente.CurrentRow.Cells[13].Value.ToString();
+
+
+
+
+
+            //2 Passo - Inserir os dados que foram selecionados no passo anterior e inseri-lós
+            //nos inputs da form
         }
     }
 }
