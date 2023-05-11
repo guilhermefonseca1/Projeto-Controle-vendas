@@ -145,6 +145,23 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             //3 Passo - Os dados que serão carregados no DataGridView são originários do resultado
             //do dao(BuscarClientePorNome) sendo passado a variável nome como parâmetro
             tabelacliente.DataSource = dao.BuscarClientePorNome(nome);
+
+            //4 Passo - Mostrar todos os elementos do banco se a pesquisa for feita sem inserir nome
+            if(tabelacliente.Rows.Count == 0)
+            {
+                //Recarrega o DataGridView
+                tabelacliente.DataSource = dao.ListarClientes();
+            }
+        }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //2 Passo - Fazendo uma busca sem precisar digitar todos os caracteres(autocompleta)
+            string nome = "%" + txtpesquisa.Text + "%";
+            ClienteDAO dao = new ClienteDAO();
+            //3 Passo - Os dados que serão carregados no DataGridView são originários do resultado
+            //do dao(BuscarClientePorNome) sendo passado a variável nome como parâmetro
+            tabelacliente.DataSource = dao.ListarClientePorNome(nome);
         }
     }
 }

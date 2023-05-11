@@ -229,10 +229,47 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         }
         #endregion
 
+
+        #region ListarClientePorNome
+        //Metodo ListarCliente
+        public DataTable ListarClientePorNome(string nome)
+        {
+            try
+            {
+                //1 passo - Criar o DataTable e o comando sql
+                DataTable tabelacliente = new DataTable();
+                string sql = "SELECT * FROM bdvendas.tb_clientes where nome like @nome";
+
+                //2 passo - Organizar o sql e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+                //3 passo - Abrir a conexao e executar o comando sql
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                //4 passo - Criar o MySQLDataAdapter para preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                //5 passo - Fechar a conexao
+                conexao.Close();
+                return tabelacliente;
+
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+                return null;
+            }
+
+        }
+        #endregion
+
     }
 }
 
 //Metodo ExcluirCliente
-//Metodo ListarCliente
 
 
