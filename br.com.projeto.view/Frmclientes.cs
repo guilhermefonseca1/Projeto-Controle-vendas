@@ -134,5 +134,17 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             //4 Passo - Atualizar/Recarregar(DataGridView) a tabela de consulta atualizando o elemento que foi alterado
             tabelacliente.DataSource = dao.ListarClientes();
         }
+
+        private void btnpesquisar_Click(object sender, EventArgs e)
+        {
+            //1 Passo - Pegar o nome digitado no campo pesquisar e armazenar em uma variável
+            //chamada nome
+            string nome = txtpesquisa.Text;
+            //2 Passo - Buscar o método BuscarClientePorNome que está dentro da classe ClienteDAO
+            ClienteDAO dao = new ClienteDAO();
+            //3 Passo - Os dados que serão carregados no DataGridView são originários do resultado
+            //do dao(BuscarClientePorNome) sendo passado a variável nome como parâmetro
+            tabelacliente.DataSource = dao.BuscarClientePorNome(nome);
+        }
     }
 }

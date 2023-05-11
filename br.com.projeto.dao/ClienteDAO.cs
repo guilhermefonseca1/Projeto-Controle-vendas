@@ -12,11 +12,11 @@ using System.Windows.Forms;
 namespace Projeto_Controle_vendas.br.com.projeto.dao
 {
     public class ClienteDAO
-    { 
+    {
         private MySqlConnection conexao;
-        public ClienteDAO() 
+        public ClienteDAO()
         {
-         this.conexao = new ConnectionFactory().getConnection();
+            this.conexao = new ConnectionFactory().getConnection();
         }
 
 
@@ -26,8 +26,8 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
         //Metodo CadastrarCliente
         public void CadastrarCliente(Cliente obj)
         {
-			try
-			{
+            try
+            {
                 //1 passo - definir o cmd sql - insert into (Valores que eu quero cadastrar)
                 string sql = @"insert into tb_clientes (nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)
                                 value (@nome,@rg,@cpf,@email,@telefone,@celular,@cep,@endereco,@numero,@complemento,@bairro,@cidade,@estado) ";
@@ -57,7 +57,7 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
                 conexao.Close();
             }
             catch (Exception erro)
-			{
+            {
 
                 MessageBox.Show("Aconteceu o erro: " + erro);
 
@@ -190,11 +190,49 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
 
 
         #endregion ListarClientes
+
+
+        #region BuscarCliente
+        //Metodo BuscarCliente
+        public DataTable BuscarClientePorNome(string nome)
+        {
+            try
+            {
+                //1 passo - Criar o DataTable e o comando sql
+                DataTable tabelacliente = new DataTable();
+                string sql = "SELECT * FROM bdvendas.tb_clientes where nome = @nome";
+
+                //2 passo - Organizar o sql e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+                //3 passo - Abrir a conexao e executar o comando sql
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                //4 passo - Criar o MySQLDataAdapter para preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                //5 passo - Fechar a conexao
+                conexao.Close();
+                return tabelacliente;
+
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+                return null;
+            }
+
+        }
+        #endregion
+
     }
 }
 
 //Metodo ExcluirCliente
 //Metodo ListarCliente
-//Metodo BuscarCliente
 
 

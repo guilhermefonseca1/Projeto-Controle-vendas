@@ -444,6 +444,7 @@
             this.btnpesquisar.TabIndex = 33;
             this.btnpesquisar.Text = "Pesquisar";
             this.btnpesquisar.UseVisualStyleBackColor = false;
+            this.btnpesquisar.Click += new System.EventHandler(this.btnpesquisar_Click);
             // 
             // txtpesquisa
             // 
