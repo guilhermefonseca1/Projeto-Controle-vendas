@@ -255,7 +255,6 @@ namespace Projeto_Controle_vendas.br.com.projeto.dao
                 conexao.Close();
                 return tabelacliente;
 
-
             }
             catch (Exception erro)
             {

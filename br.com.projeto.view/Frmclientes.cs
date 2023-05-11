@@ -91,7 +91,7 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             //1.1 Passo - Ao clicar em um contato, a aba será mudada automaticamente
             //tabClientes é o nome do painel em que estão inseridos os Dados Pessoais e Consulta
             //tabPage1 é o nome da tabela Dados Pessoais
-            tabClientes.SelectedTab = tabPage1;
+            tabClientes.SelectedTab = btnbuscar;
             
         }
 
@@ -156,12 +156,39 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
 
         private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //2 Passo - Fazendo uma busca sem precisar digitar todos os caracteres(autocompleta)
+            //2 Passo - Fazendo uma busca sem precisar digitar todos os caracteres(Busca por aproximação)
             string nome = "%" + txtpesquisa.Text + "%";
             ClienteDAO dao = new ClienteDAO();
             //3 Passo - Os dados que serão carregados no DataGridView são originários do resultado
             //do dao(BuscarClientePorNome) sendo passado a variável nome como parâmetro
             tabelacliente.DataSource = dao.ListarClientePorNome(nome);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Botão que consulta CEP
+            try
+            {
+                //cep que digitado no input do formulário
+                string cep = txtcep.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+                //O DataSet recebe e faz requisições para uma API
+                DataSet dados = new DataSet();
+
+                dados.ReadXml(xml);
+
+                txtendereço.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtbairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtcidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtcomplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                cbuf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Endereço não encontrado, por favor digite manualmente.");
+            }
         }
     }
 }
