@@ -58,6 +58,8 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             //para inserir as informações inseridas na view e armazenadas na model
             ClienteDAO dao = new ClienteDAO();
             dao.CadastrarCliente(obj);
+            //3 Passo - Atualizar/Recarregar(DataGridView) a tabela de consulta removendo o elemento que foi excluído
+            tabelacliente.DataSource = dao.ListarClientes();
         }
 
         private void Frmclientes_Load(object sender, EventArgs e)
@@ -69,6 +71,8 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
         private void tabelacliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //1 Passo - Pegar os dados do indivíduo clicando na linha da tabela consulta em que o objeto se encontra
+            //2 Passo - Inserir os dados que foram selecionados no passo anterior e inseri-lós
+            //nos inputs da form
             txtcodigo.Text = tabelacliente.CurrentRow.Cells[0].Value.ToString();
             txtnome.Text = tabelacliente.CurrentRow.Cells[1].Value.ToString();
             txtrg.Text = tabelacliente.CurrentRow.Cells[2].Value.ToString();
@@ -84,12 +88,51 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
             txtcidade.Text = tabelacliente.CurrentRow.Cells[12].Value.ToString();
             cbuf.Text = tabelacliente.CurrentRow.Cells[13].Value.ToString();
 
+            //1.1 Passo - Ao clicar em um contato, a aba será mudada automaticamente
+            //tabClientes é o nome do painel em que estão inseridos os Dados Pessoais e Consulta
+            //tabPage1 é o nome da tabela Dados Pessoais
+            tabClientes.SelectedTab = tabPage1;
+            
+        }
 
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            //1 Passo - Criar um objeto para armazenar o elemento que será excluído
+            Cliente obj = new Cliente();
+            //2 Passo - Pegar o código/id do elemento que será excluído
+            obj.codigo = int.Parse(txtcodigo.Text);
+            //3 Passo - Inserir o elemento dentro de um novo objeto e excluí-lo
+            ClienteDAO dao = new ClienteDAO();
+            dao.ExcluirCliente(obj);
+            //4 Passo - Atualizar/Recarregar(DataGridView) a tabela de consulta removendo o elemento que foi excluído
+            tabelacliente.DataSource = dao.ListarClientes();
+        }
 
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            //1 Passo - Receber os dados que estão dentro do objeto model de Cliente
+            Cliente obj = new Cliente();
+            obj.nome = txtnome.Text;
+            obj.rg = txtrg.Text;
+            obj.cpf = txtcpf.Text;
+            obj.email = txtemail.Text;
+            obj.telefone = txttelefone.Text;
+            obj.celular = txtcelular.Text;
+            obj.cep = txtcep.Text;
+            obj.endereco = txtendereço.Text;
+            obj.numero = int.Parse(txtnumero.Text);
+            obj.complemento = txtcomplemento.Text;
+            obj.bairro = txtbairro.Text;
+            obj.cidade = txtcidade.Text;
+            obj.estado = cbuf.Text;
+            obj.codigo = int.Parse(txtcodigo.Text);
 
-
-            //2 Passo - Inserir os dados que foram selecionados no passo anterior e inseri-lós
-            //nos inputs da form
+            //2 passo - Criar um objeto por meio da classe ClienteDAO e chamar o metodo AlterarCliente
+            //para inserir as informações inseridas na view e armazenadas na model
+            ClienteDAO dao = new ClienteDAO();
+            dao.AlterarClientes(obj);
+            //4 Passo - Atualizar/Recarregar(DataGridView) a tabela de consulta atualizando o elemento que foi alterado
+            tabelacliente.DataSource = dao.ListarClientes();
         }
     }
 }
