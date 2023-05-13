@@ -190,5 +190,10 @@ namespace Projeto_Controle_vendas.br.com.projeto.view
                 MessageBox.Show("Endereço não encontrado, por favor digite manualmente.");
             }
         }
+
+        private void btnnovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
+        }
     }
 }

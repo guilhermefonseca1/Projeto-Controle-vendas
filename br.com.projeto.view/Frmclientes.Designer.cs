@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabClientes = new System.Windows.Forms.TabControl();
             this.btnbuscar = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnbuscarpesquisar = new System.Windows.Forms.Button();
             this.cbuf = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtcidade = new System.Windows.Forms.TextBox();
@@ -112,7 +112,7 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Controls.Add(this.button1);
+            this.btnbuscar.Controls.Add(this.btnbuscarpesquisar);
             this.btnbuscar.Controls.Add(this.cbuf);
             this.btnbuscar.Controls.Add(this.label15);
             this.btnbuscar.Controls.Add(this.txtcidade);
@@ -149,18 +149,18 @@
             this.btnbuscar.Text = "Dados Pessoais";
             this.btnbuscar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnbuscarpesquisar
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(657, 131);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnbuscarpesquisar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnbuscarpesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbuscarpesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnbuscarpesquisar.Location = new System.Drawing.Point(657, 131);
+            this.btnbuscarpesquisar.Name = "btnbuscarpesquisar";
+            this.btnbuscarpesquisar.Size = new System.Drawing.Size(68, 35);
+            this.btnbuscarpesquisar.TabIndex = 6;
+            this.btnbuscarpesquisar.Text = "Buscar";
+            this.btnbuscarpesquisar.UseVisualStyleBackColor = false;
+            this.btnbuscarpesquisar.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbuf
             // 
@@ -489,6 +489,7 @@
             this.btnnovo.TabIndex = 2;
             this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
+            this.btnnovo.Click += new System.EventHandler(this.btnnovo_Click);
             // 
             // btnsalvar
             // 
@@ -599,6 +600,6 @@
         private System.Windows.Forms.Button btnpesquisar;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnbuscarpesquisar;
     }
 }
